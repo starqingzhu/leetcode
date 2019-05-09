@@ -12,36 +12,29 @@ using namespace std;
 
 
 //直接输出值
-vector<int> twoSum(const vector<int>& arr,int sum)
+vector<int> twoSum(const vector<int>& nums,int target)
 {
-
-    vector<int> result;
-    map<int,int> hash_arr;
-
-    for(int i=0;i<arr.size();++i)
+    map<int,int> hash_nums;
+    int i = 0;
+    while(i < nums.size())
     {
-        if( hash_arr.count(arr[i]) == 0 && hash_arr.count(sum-arr[i]) != 0)
+        if(hash_nums.find(target-nums[i]) != hash_nums.end())
         {
-            result.push_back(sum-arr[i]);
-            result.push_back(arr[i]);
-            return result;
+            return {hash_nums[target-nums[i]],i};
         }
 
-        hash_arr[arr[i]]=i;
-        cout<<"add hash_arr["<<arr[i]<<"]="<<i<<endl;
+        hash_nums[nums[i]]=i;
+        ++i;
     }
+    return {};
 
 }
 
 int main(int argc,char** argv)
 {
-    vector<int> arr;
-    arr.push_back(2);
-    arr.push_back(4);
-    arr.push_back(8);
-    arr.push_back(9);
-    int sum = 11;
-    vector<int> res = twoSum(arr,sum);
+    vector<int> nums = {3,3};
+    int sum = 6;
+    vector<int> res = twoSum(nums,sum);
     for(int i=0;i<res.size();++i)
     {
         cout<<res[i]<<" ";
