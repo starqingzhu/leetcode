@@ -49,27 +49,42 @@ vector<int> twoSumII(const vector<int>& nums, int target)
     }
     return v_rel;
 }
+vector<int> twoSum(vector<int>& numbers, int target) 
+{
+    int l_pos=0,r_pos=numbers.size()-1;
+    cout<<"l_pos="<<l_pos<<"  r_pos="<<r_pos<<endl;
+    while(l_pos < r_pos)
+    {
+        if(target < numbers[l_pos] + numbers[r_pos])
+        {
+            --r_pos;
+            continue;
+        }
+        else if(target > numbers[l_pos] + numbers[r_pos])
+        {
+            ++l_pos;
+            continue;
+        }
+        else
+        {
+            return {l_pos+1,r_pos+1};
+        }
+    }
+    return {};
+}
 
 //数组中 {1,5,8,10}
 int main(int argc,char** argv)
 {
-    vector<int> v_src = {10,8,5,1};//{1,5,8,10};
-    //v_src.push_back(1);
-    //v_src.push_back(5);
-    //v_src.push_back(8);
-    //v_src.push_back(10);
-
+    vector<int> v_src = {1,5,8,10};//{1,5,8,10};
 
     int target = 15;
-    vector<int> v_rel = twoSumII(v_src,target);
+    //vector<int> v_rel = twoSumII(v_src,target);
+    vector<int> v_rel = twoSum(v_src,target);
     for (int x : v_rel )
     {
         cout<<x<<"  ";
     }
-    //for(int i=0;i<v_rel.size();++i)
-    //{
-    //    cout<<v_rel[i]<<"  ";
-    //}
     cout<<endl;
     return 0;
 }
