@@ -38,7 +38,7 @@ vector<vector<int>> threeSum(vector<int>& nums)
         int begin_pos = second_num_begin,end_pos=nums.size()-1;
 
         if( nums[first_num_pos] >0 ) break;
-        if( nums[first_num_pos]==nums[first_num_pos-1] ) continue;
+        if( first_num_pos> 0 && nums[first_num_pos]==nums[first_num_pos-1] ) continue;
 
         while( begin_pos < end_pos )
         {
