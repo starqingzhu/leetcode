@@ -10,3 +10,4 @@ deleteNode->删除链表中的节点
 detectCycle->环形链表 II
 maxDepth->二叉树的最大深度
 lowestCommonAncestor-> 二叉树的最近公共祖先
+buildTree->从前序与中序遍历序列构造二叉树
